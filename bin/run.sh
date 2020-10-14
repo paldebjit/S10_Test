@@ -41,13 +41,10 @@ fi
 rm -rf $KERNEL ${KERNEL}.aoc* ${KERNEL}.source time.out
 
 # Make directories for device and host program compilation
-mkdir -pv device_${KERNEL} hostbin
+mkdir -pv device_${KERNEL}
 
 # Move kernel code to device directory
 mv ${KERNEL}.cl ./device_${KERNEL}
-
-# Move host file to host directory
-mv host host.cpp Makefile Makefile.host obj save ./hostbin
 
 # Time to compile kernel code
 cd device_${KERNEL}
