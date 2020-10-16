@@ -1,8 +1,0 @@
-{"name":"Info","rows":[
-{"classes":["info-table"],"name":"Project Name","data":["kernel_3"]},
-{"name":"Target Family, Device, Board","data":["Stratix 10, 1SX280HN2F43E2VG, dcp_bsp:pac_s10_dc"]},
-{"name":"AOC Version","data":["18.1.2 Build 277"]},
-{"name":"Quartus Version","data":["18.1.2 Build 277 Pro"]},
-{"name":"Command","data":["aoc -board=pac_s10_dc -time time.out -time-passes -regtest_mode -v -fpc -fp-relaxed -opt-arg -nocaching -report -profile=all -I /export/fpga/tools/quartus_pro/18.1.2_patches_202_203_206/hld/include/kernel_headers kernel_3.cl"]},
-{"name":"Reports Generated At","data":["Thu Oct 15 22:22:19 2020"]}
-]}
