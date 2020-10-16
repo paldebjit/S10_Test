@@ -1,0 +1,404 @@
+{
+  "columns":
+  ["", "ALUTs", "FFs", "RAMs", "DSPs", "MLABs", "Details"]
+  , "debug_enabled":"true"
+  , "type":"module"
+  , "total_percent":
+  [20.7467, 12.8864, 8.99665, 5.31367, 1.11111]
+  , "total":
+  [213339, 311044, 598, 64, 69]
+  , "name":"Kernel System"
+  , "max_resources":
+  [1666240, 3457330, 11254, 5760, 83312]
+  , "children":
+  [
+    {
+      "name":"Static Partition"
+      , "type":"partition"
+      , "children":
+      [
+        {
+          "name":"Board interface"
+          , "type":"resource"
+          , "data":
+          [200000, 275150, 467, 0, 0]
+          , "details":
+          [
+            {
+              "type":"text"
+              , "text":"Platform interface logic."
+            }
+          ]
+        }
+      ]
+    }
+    , {
+      "name":"Global interconnect"
+      , "type":"resource"
+      , "data":
+      [7490, 15614, 52, 0, 0]
+      , "details":
+      [
+        {
+          "type":"text"
+          , "text":"Global interconnect for 1 global load and 1 global store."
+        }
+        , {
+          "type":"brief"
+          , "text":"For 1 global load and 1 global store."
+        }
+        , {
+          "type":"text"
+          , "text":"See %L for more information"
+          , "links":
+          [
+            {
+              "guide":"Best Practices Guide : Global Memory Interconnect"
+              , "link":"https://www.altera.com/documentation/mwh1391807516407.html#hnj1476724450050"
+            }
+          ]
+        }
+      ]
+    }
+    , {
+      "name":"System description ROM"
+      , "type":"resource"
+      , "data":
+      [2, 71, 2, 0, 0]
+      , "details":
+      [
+        {
+          "type":"text"
+          , "text":"This read-only memory contains information for the host about the system and about each kernel in the system, including kernel names, arguments, and attributes.  The system description ROM ensures that the binary image on the FPGA is compatible with the host program."
+        }
+        , {
+          "type":"brief"
+          , "text":"Contains information for the host."
+        }
+      ]
+    }
+    , {
+      "name":"defualt_function"
+      , "compute_units":1
+      , "type":"function"
+      , "total_percent":
+      [1.00818, 0.433731, 0.584526, 0.684201, 1.11111]
+      , "total_kernel_resources":
+      [5847, 20209, 77, 64, 69]
+      , "details":
+      [
+        {
+          "type":"text"
+          , "text":"Number of compute units: 1"
+        }
+        , {
+          "type":"brief"
+          , "text":"1 compute unit."
+        }
+      ]
+      , "children":
+      [
+        {
+          "name":"Function overhead"
+          , "type":"resource"
+          , "data":
+          [1463, 1467, 0, 0, 6]
+          , "details":
+          [
+            {
+              "type":"text"
+              , "text":"Kernel dispatch logic."
+            }
+            , {
+              "type":"brief"
+              , "text":"Kernel dispatch logic."
+            }
+          ]
+        }
+        , {
+          "name":"Private Variable: \n - 'c2' (kernel_3.cl:6)"
+          , "type":"resource"
+          , "data":
+          [16, 78, 0, 0, 0]
+          , "debug":
+          [
+            [
+              {
+                "filename":"/homes/dp638/Work/S10_Test/kernel/BNN/device_kernel_3/kernel_3.cl"
+                , "line":6
+              }
+            ]
+          ]
+          , "details":
+          [
+            {
+              "type":"text"
+              , "text":"Type: Register"
+            }
+            , {
+              "type":"text"
+              , "text":"1 register of width 7"
+            }
+            , {
+              "type":"text"
+              , "text":"1 register of width 32"
+            }
+            , {
+              "type":"brief"
+              , "text":"Register,\n1 reg, 7 width,\n1 reg, 32 width"
+            }
+          ]
+        }
+        , {
+          "name":"defualt_function.B2"
+          , "type":"basicblock"
+          , "children":
+          [
+            {
+              "name":"State"
+              , "type":"resource"
+              , "data":
+              [455, 4138, 19, 0, 62]
+              , "details":
+              [
+                {
+                  "type":"brief"
+                  , "text":"Live values and control logic"
+                }
+                , {
+                  "type":"text"
+                  , "text":"Resources for live values and control logic. To reduce this area:"
+                  , "details":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"reduce size of local variables"
+                    }
+                    , {
+                      "type":"text"
+                      , "text":"reduce scope of local variables, localizing them as much as possible"
+                    }
+                    , {
+                      "type":"text"
+                      , "text":"reduce number of nested loops"
+                    }
+                  ]
+                }
+              ]
+              , "children":
+              [
+                {
+                  "name":"No Source Line"
+                  , "type":"resource"
+                  , "data":
+                  [455, 4138, 19, 0, 62]
+                }
+              ]
+            }
+            , {
+              "name":"Feedback"
+              , "type":"resource"
+              , "data":
+              [36, 9, 0, 0, 0]
+              , "details":
+              [
+                {
+                  "type":"brief"
+                  , "text":"Loop-carried dependencies"
+                }
+                , {
+                  "type":"text"
+                  , "text":"Resources for loop-carried dependencies. To reduce this area:"
+                  , "details":
+                  [
+                    {
+                      "type":"text"
+                      , "text":"reduce number and size of loop-carried variables"
+                    }
+                  ]
+                }
+              ]
+              , "children":
+              [
+                {
+                  "name":"kernel_3.cl:6"
+                  , "type":"resource"
+                  , "data":
+                  [36, 9, 0, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/homes/dp638/Work/S10_Test/kernel/BNN/device_kernel_3/kernel_3.cl"
+                        , "line":6
+                      }
+                    ]
+                  ]
+                }
+              ]
+            }
+            , {
+              "name":"Cluster logic"
+              , "type":"resource"
+              , "data":
+              [197, 277, 5, 0, 1]
+              , "details":
+              [
+                {
+                  "type":"brief"
+                  , "text":"Logic required to efficiently support sets of operations that do not stall"
+                }
+                , {
+                  "type":"text"
+                  , "text":"Logic required to efficiently support sets of operations that do not stall. This area cannot be affected directly."
+                }
+              ]
+            }
+            , {
+              "name":"Computation"
+              , "type":"resource"
+              , "children":
+              [
+                {
+                  "name":"kernel_3.cl:6"
+                  , "type":"resource"
+                  , "data":
+                  [42, 0, 0, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/homes/dp638/Work/S10_Test/kernel/BNN/device_kernel_3/kernel_3.cl"
+                        , "line":6
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"1-bit And"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [1, 0, 0, 0, 0]
+                    }
+                    , {
+                      "name":"32-bit Integer Add"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [32, 0, 0, 0, 0]
+                    }
+                    , {
+                      "name":"7-bit Integer Add"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [7, 0, 0, 0, 0]
+                    }
+                    , {
+                      "name":"7-bit Integer Compare"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [2, 0, 0, 0, 0]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"kernel_3.cl:12"
+                  , "type":"resource"
+                  , "data":
+                  [3101, 11993, 37, 64, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/homes/dp638/Work/S10_Test/kernel/BNN/device_kernel_3/kernel_3.cl"
+                        , "line":12
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"Hardened Floating-Point Dot Product of Size 16"
+                      , "type":"resource"
+                      , "count":4
+                      , "data":
+                      [2176, 5120, 0, 64, 0]
+                    }
+                    , {
+                      "name":"Load"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [925, 6873, 37, 0, 0]
+                      , "details":
+                      [
+                        {
+                          "type":"text"
+                          , "text":"Load uses a Burst-coalesced LSU"
+                        }
+                        , {
+                          "type":"brief"
+                          , "text":"Burst-coalesced LSU"
+                        }
+                      ]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+                , {
+                  "name":"kernel_3.cl:20"
+                  , "type":"resource"
+                  , "data":
+                  [537, 2247, 16, 0, 0]
+                  , "debug":
+                  [
+                    [
+                      {
+                        "filename":"/homes/dp638/Work/S10_Test/kernel/BNN/device_kernel_3/kernel_3.cl"
+                        , "line":20
+                      }
+                    ]
+                  ]
+                  , "children":
+                  [
+                    {
+                      "name":"Hardened Floating-point Multiply"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [147, 119, 0, 0, 0]
+                    }
+                    , {
+                      "name":"Store"
+                      , "type":"resource"
+                      , "count":1
+                      , "data":
+                      [390, 2128, 16, 0, 0]
+                      , "details":
+                      [
+                        {
+                          "type":"text"
+                          , "text":"Store uses a Burst-coalesced LSU"
+                        }
+                        , {
+                          "type":"brief"
+                          , "text":"Burst-coalesced LSU"
+                        }
+                      ]
+                    }
+                  ]
+                  , "replace_name":"true"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
