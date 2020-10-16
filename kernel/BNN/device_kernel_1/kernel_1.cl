@@ -35,7 +35,9 @@ __kernel void test(__global float* restrict input_image, __global float* restric
       for (int32_t args0 = 0; args0 < 16; ++args0) {
         for (int32_t args1 = 0; args1 < 32; ++args1) {
           for (int32_t args2 = 0; args2 < 32; ++args2) {
-            bn1[(((args2 + (args1 * 32)) + (args0 * 1024)) + (x * 16384))] = ((float)(((((float)(((float)conv1[(((args2 + (args1 * 32)) + (args0 * 1024)) + (x * 16384))]) - ((float)bn1_running_mean[args0]))) / sqrtf((((float)bn1_running_var[args0]) + 1.000000e-07f))) * ((float)bn1_weight[args0])) + ((float)bn1_bias[args0])));
+            //bn1[(((args2 + (args1 * 32)) + (args0 * 1024)) + (x * 16384))] = ((float)(((((float)(((float)conv1[(((args2 + (args1 * 32)) + (args0 * 1024)) + (x * 16384))]) - ((float)bn1_running_mean[args0]))) / sqrtf((((float)bn1_running_var[args0]) + 1.000000e-07f))) * ((float)bn1_weight[args0])) + ((float)bn1_bias[args0])));
+            
+            bn1[(((args2 + (args1 * 32)) + (args0 * 1024)) + (x * 16384))] = ((float)((((float)(((float)conv1[(((args2 + (args1 * 32)) + (args0 * 1024)) + (x * 16384))]))) * ((float)bn1_weight[args0])) + ((float)bn1_bias[args0])));
           }
         }
       }
@@ -83,7 +85,9 @@ __kernel void test(__global float* restrict input_image, __global float* restric
       for (int32_t args01 = 0; args01 < 16; ++args01) {
         for (int32_t args11 = 0; args11 < 32; ++args11) {
           for (int32_t args21 = 0; args21 < 32; ++args21) {
-            layer1_0_bn1[(((args21 + (args11 * 32)) + (args01 * 1024)) + (x1 * 16384))] = ((float)(((((float)(((float)layer1_0_conv1[(((args21 + (args11 * 32)) + (args01 * 1024)) + (x1 * 16384))]) - ((float)layer1_0_bn1_running_mean[args01]))) / sqrtf((((float)layer1_0_bn1_running_var[args01]) + 1.000000e-07f))) * ((float)layer1_0_bn1_weight[args01])) + ((float)layer1_0_bn1_bias[args01])));
+            //layer1_0_bn1[(((args21 + (args11 * 32)) + (args01 * 1024)) + (x1 * 16384))] = ((float)(((((float)(((float)layer1_0_conv1[(((args21 + (args11 * 32)) + (args01 * 1024)) + (x1 * 16384))]) - ((float)layer1_0_bn1_running_mean[args01]))) / sqrtf((((float)layer1_0_bn1_running_var[args01]) + 1.000000e-07f))) * ((float)layer1_0_bn1_weight[args01])) + ((float)layer1_0_bn1_bias[args01])));
+            
+            layer1_0_bn1[(((args21 + (args11 * 32)) + (args01 * 1024)) + (x1 * 16384))] = ((float)((((float)(((float)layer1_0_conv1[(((args21 + (args11 * 32)) + (args01 * 1024)) + (x1 * 16384))]))) * ((float)layer1_0_bn1_weight[args01])) + ((float)layer1_0_bn1_bias[args01])));
           }
         }
       }
@@ -151,7 +155,9 @@ __kernel void test(__global float* restrict input_image, __global float* restric
       for (int32_t args02 = 0; args02 < 16; ++args02) {
         for (int32_t args12 = 0; args12 < 32; ++args12) {
           for (int32_t args22 = 0; args22 < 32; ++args22) {
-            layer1_0_bn2[(((args22 + (args12 * 32)) + (args02 * 1024)) + (x2 * 16384))] = ((float)(((((float)(((float)layer1_0_conv2[(((args22 + (args12 * 32)) + (args02 * 1024)) + (x2 * 16384))]) - ((float)layer1_0_bn2_running_mean[args02]))) / sqrtf((((float)layer1_0_bn2_running_var[args02]) + 1.000000e-07f))) * ((float)layer1_0_bn2_weight[args02])) + ((float)layer1_0_bn2_bias[args02])));
+            //layer1_0_bn2[(((args22 + (args12 * 32)) + (args02 * 1024)) + (x2 * 16384))] = ((float)(((((float)(((float)layer1_0_conv2[(((args22 + (args12 * 32)) + (args02 * 1024)) + (x2 * 16384))]) - ((float)layer1_0_bn2_running_mean[args02]))) / sqrtf((((float)layer1_0_bn2_running_var[args02]) + 1.000000e-07f))) * ((float)layer1_0_bn2_weight[args02])) + ((float)layer1_0_bn2_bias[args02])));
+            
+            layer1_0_bn2[(((args22 + (args12 * 32)) + (args02 * 1024)) + (x2 * 16384))] = ((float)((((float)(((float)layer1_0_conv2[(((args22 + (args12 * 32)) + (args02 * 1024)) + (x2 * 16384))]))) * ((float)layer1_0_bn2_weight[args02])) + ((float)layer1_0_bn2_bias[args02])));
           }
         }
       }
@@ -219,7 +225,9 @@ __kernel void test(__global float* restrict input_image, __global float* restric
       for (int32_t args03 = 0; args03 < 16; ++args03) {
         for (int32_t args13 = 0; args13 < 32; ++args13) {
           for (int32_t args23 = 0; args23 < 32; ++args23) {
-            layer1_1_bn1[(((args23 + (args13 * 32)) + (args03 * 1024)) + (x3 * 16384))] = ((float)(((((float)(((float)layer1_1_conv1[(((args23 + (args13 * 32)) + (args03 * 1024)) + (x3 * 16384))]) - ((float)layer1_1_bn1_running_mean[args03]))) / sqrtf((((float)layer1_1_bn1_running_var[args03]) + 1.000000e-07f))) * ((float)layer1_1_bn1_weight[args03])) + ((float)layer1_1_bn1_bias[args03])));
+            //layer1_1_bn1[(((args23 + (args13 * 32)) + (args03 * 1024)) + (x3 * 16384))] = ((float)(((((float)(((float)layer1_1_conv1[(((args23 + (args13 * 32)) + (args03 * 1024)) + (x3 * 16384))]) - ((float)layer1_1_bn1_running_mean[args03]))) / sqrtf((((float)layer1_1_bn1_running_var[args03]) + 1.000000e-07f))) * ((float)layer1_1_bn1_weight[args03])) + ((float)layer1_1_bn1_bias[args03])));
+            
+            layer1_1_bn1[(((args23 + (args13 * 32)) + (args03 * 1024)) + (x3 * 16384))] = ((float)((((float)(((float)layer1_1_conv1[(((args23 + (args13 * 32)) + (args03 * 1024)) + (x3 * 16384))]))) * ((float)layer1_1_bn1_weight[args03])) + ((float)layer1_1_bn1_bias[args03])));
           }
         }
       }
@@ -287,7 +295,9 @@ __kernel void test(__global float* restrict input_image, __global float* restric
       for (int32_t args04 = 0; args04 < 16; ++args04) {
         for (int32_t args14 = 0; args14 < 32; ++args14) {
           for (int32_t args24 = 0; args24 < 32; ++args24) {
-            layer1_1_bn2[(((args24 + (args14 * 32)) + (args04 * 1024)) + (x4 * 16384))] = ((float)(((((float)(((float)layer1_1_conv2[(((args24 + (args14 * 32)) + (args04 * 1024)) + (x4 * 16384))]) - ((float)layer1_1_bn2_running_mean[args04]))) / sqrtf((((float)layer1_1_bn2_running_var[args04]) + 1.000000e-07f))) * ((float)layer1_1_bn2_weight[args04])) + ((float)layer1_1_bn2_bias[args04])));
+            //layer1_1_bn2[(((args24 + (args14 * 32)) + (args04 * 1024)) + (x4 * 16384))] = ((float)(((((float)(((float)layer1_1_conv2[(((args24 + (args14 * 32)) + (args04 * 1024)) + (x4 * 16384))]) - ((float)layer1_1_bn2_running_mean[args04]))) / sqrtf((((float)layer1_1_bn2_running_var[args04]) + 1.000000e-07f))) * ((float)layer1_1_bn2_weight[args04])) + ((float)layer1_1_bn2_bias[args04])));
+            
+            layer1_1_bn2[(((args24 + (args14 * 32)) + (args04 * 1024)) + (x4 * 16384))] = ((float)((((float)(((float)layer1_1_conv2[(((args24 + (args14 * 32)) + (args04 * 1024)) + (x4 * 16384))]))) * ((float)layer1_1_bn2_weight[args04])) + ((float)layer1_1_bn2_bias[args04])));
           }
         }
       }
@@ -355,7 +365,9 @@ __kernel void test(__global float* restrict input_image, __global float* restric
       for (int32_t args05 = 0; args05 < 16; ++args05) {
         for (int32_t args15 = 0; args15 < 32; ++args15) {
           for (int32_t args25 = 0; args25 < 32; ++args25) {
-            layer1_2_bn1[(((args25 + (args15 * 32)) + (args05 * 1024)) + (x5 * 16384))] = ((float)(((((float)(((float)layer1_2_conv1[(((args25 + (args15 * 32)) + (args05 * 1024)) + (x5 * 16384))]) - ((float)layer1_2_bn1_running_mean[args05]))) / sqrtf((((float)layer1_2_bn1_running_var[args05]) + 1.000000e-07f))) * ((float)layer1_2_bn1_weight[args05])) + ((float)layer1_2_bn1_bias[args05])));
+            //layer1_2_bn1[(((args25 + (args15 * 32)) + (args05 * 1024)) + (x5 * 16384))] = ((float)(((((float)(((float)layer1_2_conv1[(((args25 + (args15 * 32)) + (args05 * 1024)) + (x5 * 16384))]) - ((float)layer1_2_bn1_running_mean[args05]))) / sqrtf((((float)layer1_2_bn1_running_var[args05]) + 1.000000e-07f))) * ((float)layer1_2_bn1_weight[args05])) + ((float)layer1_2_bn1_bias[args05])));
+
+            layer1_2_bn1[(((args25 + (args15 * 32)) + (args05 * 1024)) + (x5 * 16384))] = ((float)((((float)(((float)layer1_2_conv1[(((args25 + (args15 * 32)) + (args05 * 1024)) + (x5 * 16384))]))) * ((float)layer1_2_bn1_weight[args05])) + ((float)layer1_2_bn1_bias[args05])));
           }
         }
       }
@@ -423,7 +435,9 @@ __kernel void test(__global float* restrict input_image, __global float* restric
       for (int32_t args06 = 0; args06 < 16; ++args06) {
         for (int32_t args16 = 0; args16 < 32; ++args16) {
           for (int32_t args26 = 0; args26 < 32; ++args26) {
-            layer1_2_bn2[(((args26 + (args16 * 32)) + (args06 * 1024)) + (x6 * 16384))] = ((float)(((((float)(((float)layer1_2_conv2[(((args26 + (args16 * 32)) + (args06 * 1024)) + (x6 * 16384))]) - ((float)layer1_2_bn2_running_mean[args06]))) / sqrtf((((float)layer1_2_bn2_running_var[args06]) + 1.000000e-07f))) * ((float)layer1_2_bn2_weight[args06])) + ((float)layer1_2_bn2_bias[args06])));
+            //layer1_2_bn2[(((args26 + (args16 * 32)) + (args06 * 1024)) + (x6 * 16384))] = ((float)(((((float)(((float)layer1_2_conv2[(((args26 + (args16 * 32)) + (args06 * 1024)) + (x6 * 16384))]) - ((float)layer1_2_bn2_running_mean[args06]))) / sqrtf((((float)layer1_2_bn2_running_var[args06]) + 1.000000e-07f))) * ((float)layer1_2_bn2_weight[args06])) + ((float)layer1_2_bn2_bias[args06])));
+            
+            layer1_2_bn2[(((args26 + (args16 * 32)) + (args06 * 1024)) + (x6 * 16384))] = ((float)((((float)(((float)layer1_2_conv2[(((args26 + (args16 * 32)) + (args06 * 1024)) + (x6 * 16384))]))) * ((float)layer1_2_bn2_weight[args06])) + ((float)layer1_2_bn2_bias[args06])));
           }
         }
       }
@@ -491,7 +505,9 @@ __kernel void test(__global float* restrict input_image, __global float* restric
       for (int32_t args07 = 0; args07 < 32; ++args07) {
         for (int32_t args17 = 0; args17 < 16; ++args17) {
           for (int32_t args27 = 0; args27 < 16; ++args27) {
-            layer2_0_bn1[(((args27 + (args17 * 16)) + (args07 * 256)) + (x7 * 8192))] = ((float)(((((float)(((float)layer2_0_conv1[(((args27 + (args17 * 16)) + (args07 * 256)) + (x7 * 8192))]) - ((float)layer2_0_bn1_running_mean[args07]))) / sqrtf((((float)layer2_0_bn1_running_var[args07]) + 1.000000e-07f))) * ((float)layer2_0_bn1_weight[args07])) + ((float)layer2_0_bn1_bias[args07])));
+            //layer2_0_bn1[(((args27 + (args17 * 16)) + (args07 * 256)) + (x7 * 8192))] = ((float)(((((float)(((float)layer2_0_conv1[(((args27 + (args17 * 16)) + (args07 * 256)) + (x7 * 8192))]) - ((float)layer2_0_bn1_running_mean[args07]))) / sqrtf((((float)layer2_0_bn1_running_var[args07]) + 1.000000e-07f))) * ((float)layer2_0_bn1_weight[args07])) + ((float)layer2_0_bn1_bias[args07])));
+            
+            layer2_0_bn1[(((args27 + (args17 * 16)) + (args07 * 256)) + (x7 * 8192))] = ((float)((((float)(((float)layer2_0_conv1[(((args27 + (args17 * 16)) + (args07 * 256)) + (x7 * 8192))]))) * ((float)layer2_0_bn1_weight[args07])) + ((float)layer2_0_bn1_bias[args07])));
           }
         }
       }
@@ -591,7 +607,9 @@ __kernel void test(__global float* restrict input_image, __global float* restric
       for (int32_t args08 = 0; args08 < 32; ++args08) {
         for (int32_t args18 = 0; args18 < 16; ++args18) {
           for (int32_t args28 = 0; args28 < 16; ++args28) {
-            layer2_0_bn2[(((args28 + (args18 * 16)) + (args08 * 256)) + (x8 * 8192))] = ((float)(((((float)(((float)layer2_0_conv2[(((args28 + (args18 * 16)) + (args08 * 256)) + (x8 * 8192))]) - ((float)layer2_0_bn2_running_mean[args08]))) / sqrtf((((float)layer2_0_bn2_running_var[args08]) + 1.000000e-07f))) * ((float)layer2_0_bn2_weight[args08])) + ((float)layer2_0_bn2_bias[args08])));
+            //layer2_0_bn2[(((args28 + (args18 * 16)) + (args08 * 256)) + (x8 * 8192))] = ((float)(((((float)(((float)layer2_0_conv2[(((args28 + (args18 * 16)) + (args08 * 256)) + (x8 * 8192))]) - ((float)layer2_0_bn2_running_mean[args08]))) / sqrtf((((float)layer2_0_bn2_running_var[args08]) + 1.000000e-07f))) * ((float)layer2_0_bn2_weight[args08])) + ((float)layer2_0_bn2_bias[args08])));
+            
+            layer2_0_bn2[(((args28 + (args18 * 16)) + (args08 * 256)) + (x8 * 8192))] = ((float)((((float)(((float)layer2_0_conv2[(((args28 + (args18 * 16)) + (args08 * 256)) + (x8 * 8192))]))) * ((float)layer2_0_bn2_weight[args08])) + ((float)layer2_0_bn2_bias[args08])));
           }
         }
       }
@@ -659,7 +677,9 @@ __kernel void test(__global float* restrict input_image, __global float* restric
       for (int32_t args09 = 0; args09 < 32; ++args09) {
         for (int32_t args19 = 0; args19 < 16; ++args19) {
           for (int32_t args29 = 0; args29 < 16; ++args29) {
-            layer2_1_bn1[(((args29 + (args19 * 16)) + (args09 * 256)) + (x9 * 8192))] = ((float)(((((float)(((float)layer2_1_conv1[(((args29 + (args19 * 16)) + (args09 * 256)) + (x9 * 8192))]) - ((float)layer2_1_bn1_running_mean[args09]))) / sqrtf((((float)layer2_1_bn1_running_var[args09]) + 1.000000e-07f))) * ((float)layer2_1_bn1_weight[args09])) + ((float)layer2_1_bn1_bias[args09])));
+            //layer2_1_bn1[(((args29 + (args19 * 16)) + (args09 * 256)) + (x9 * 8192))] = ((float)(((((float)(((float)layer2_1_conv1[(((args29 + (args19 * 16)) + (args09 * 256)) + (x9 * 8192))]) - ((float)layer2_1_bn1_running_mean[args09]))) / sqrtf((((float)layer2_1_bn1_running_var[args09]) + 1.000000e-07f))) * ((float)layer2_1_bn1_weight[args09])) + ((float)layer2_1_bn1_bias[args09])));
+            
+            layer2_1_bn1[(((args29 + (args19 * 16)) + (args09 * 256)) + (x9 * 8192))] = ((float)((((float)(((float)layer2_1_conv1[(((args29 + (args19 * 16)) + (args09 * 256)) + (x9 * 8192))]))) * ((float)layer2_1_bn1_weight[args09])) + ((float)layer2_1_bn1_bias[args09])));
           }
         }
       }
@@ -727,7 +747,9 @@ __kernel void test(__global float* restrict input_image, __global float* restric
       for (int32_t args010 = 0; args010 < 32; ++args010) {
         for (int32_t args110 = 0; args110 < 16; ++args110) {
           for (int32_t args210 = 0; args210 < 16; ++args210) {
-            layer2_1_bn2[(((args210 + (args110 * 16)) + (args010 * 256)) + (x10 * 8192))] = ((float)(((((float)(((float)layer2_1_conv2[(((args210 + (args110 * 16)) + (args010 * 256)) + (x10 * 8192))]) - ((float)layer2_1_bn2_running_mean[args010]))) / sqrtf((((float)layer2_1_bn2_running_var[args010]) + 1.000000e-07f))) * ((float)layer2_1_bn2_weight[args010])) + ((float)layer2_1_bn2_bias[args010])));
+            //layer2_1_bn2[(((args210 + (args110 * 16)) + (args010 * 256)) + (x10 * 8192))] = ((float)(((((float)(((float)layer2_1_conv2[(((args210 + (args110 * 16)) + (args010 * 256)) + (x10 * 8192))]) - ((float)layer2_1_bn2_running_mean[args010]))) / sqrtf((((float)layer2_1_bn2_running_var[args010]) + 1.000000e-07f))) * ((float)layer2_1_bn2_weight[args010])) + ((float)layer2_1_bn2_bias[args010])));
+            
+            layer2_1_bn2[(((args210 + (args110 * 16)) + (args010 * 256)) + (x10 * 8192))] = ((float)((((float)(((float)layer2_1_conv2[(((args210 + (args110 * 16)) + (args010 * 256)) + (x10 * 8192))]))) * ((float)layer2_1_bn2_weight[args010])) + ((float)layer2_1_bn2_bias[args010])));
           }
         }
       }
@@ -795,7 +817,9 @@ __kernel void test(__global float* restrict input_image, __global float* restric
       for (int32_t args011 = 0; args011 < 32; ++args011) {
         for (int32_t args111 = 0; args111 < 16; ++args111) {
           for (int32_t args211 = 0; args211 < 16; ++args211) {
-            layer2_2_bn1[(((args211 + (args111 * 16)) + (args011 * 256)) + (x11 * 8192))] = ((float)(((((float)(((float)layer2_2_conv1[(((args211 + (args111 * 16)) + (args011 * 256)) + (x11 * 8192))]) - ((float)layer2_2_bn1_running_mean[args011]))) / sqrtf((((float)layer2_2_bn1_running_var[args011]) + 1.000000e-07f))) * ((float)layer2_2_bn1_weight[args011])) + ((float)layer2_2_bn1_bias[args011])));
+            //layer2_2_bn1[(((args211 + (args111 * 16)) + (args011 * 256)) + (x11 * 8192))] = ((float)(((((float)(((float)layer2_2_conv1[(((args211 + (args111 * 16)) + (args011 * 256)) + (x11 * 8192))]) - ((float)layer2_2_bn1_running_mean[args011]))) / sqrtf((((float)layer2_2_bn1_running_var[args011]) + 1.000000e-07f))) * ((float)layer2_2_bn1_weight[args011])) + ((float)layer2_2_bn1_bias[args011])));
+            
+            layer2_2_bn1[(((args211 + (args111 * 16)) + (args011 * 256)) + (x11 * 8192))] = ((float)((((float)(((float)layer2_2_conv1[(((args211 + (args111 * 16)) + (args011 * 256)) + (x11 * 8192))]))) * ((float)layer2_2_bn1_weight[args011])) + ((float)layer2_2_bn1_bias[args011])));
           }
         }
       }
@@ -863,7 +887,9 @@ __kernel void test(__global float* restrict input_image, __global float* restric
       for (int32_t args012 = 0; args012 < 32; ++args012) {
         for (int32_t args112 = 0; args112 < 16; ++args112) {
           for (int32_t args212 = 0; args212 < 16; ++args212) {
-            layer2_2_bn2[(((args212 + (args112 * 16)) + (args012 * 256)) + (x12 * 8192))] = ((float)(((((float)(((float)layer2_2_conv2[(((args212 + (args112 * 16)) + (args012 * 256)) + (x12 * 8192))]) - ((float)layer2_2_bn2_running_mean[args012]))) / sqrtf((((float)layer2_2_bn2_running_var[args012]) + 1.000000e-07f))) * ((float)layer2_2_bn2_weight[args012])) + ((float)layer2_2_bn2_bias[args012])));
+            //layer2_2_bn2[(((args212 + (args112 * 16)) + (args012 * 256)) + (x12 * 8192))] = ((float)(((((float)(((float)layer2_2_conv2[(((args212 + (args112 * 16)) + (args012 * 256)) + (x12 * 8192))]) - ((float)layer2_2_bn2_running_mean[args012]))) / sqrtf((((float)layer2_2_bn2_running_var[args012]) + 1.000000e-07f))) * ((float)layer2_2_bn2_weight[args012])) + ((float)layer2_2_bn2_bias[args012])));
+            
+            layer2_2_bn2[(((args212 + (args112 * 16)) + (args012 * 256)) + (x12 * 8192))] = ((float)((((float)(((float)layer2_2_conv2[(((args212 + (args112 * 16)) + (args012 * 256)) + (x12 * 8192))]))) * ((float)layer2_2_bn2_weight[args012])) + ((float)layer2_2_bn2_bias[args012])));
           }
         }
       }
@@ -931,7 +957,9 @@ __kernel void test(__global float* restrict input_image, __global float* restric
       for (int32_t args013 = 0; args013 < 64; ++args013) {
         for (int32_t args113 = 0; args113 < 8; ++args113) {
           for (int32_t args213 = 0; args213 < 8; ++args213) {
-            layer3_0_bn1[(((args213 + (args113 * 8)) + (args013 * 64)) + (x13 * 4096))] = ((float)(((((float)(((float)layer3_0_conv1[(((args213 + (args113 * 8)) + (args013 * 64)) + (x13 * 4096))]) - ((float)layer3_0_bn1_running_mean[args013]))) / sqrtf((((float)layer3_0_bn1_running_var[args013]) + 1.000000e-07f))) * ((float)layer3_0_bn1_weight[args013])) + ((float)layer3_0_bn1_bias[args013])));
+            //layer3_0_bn1[(((args213 + (args113 * 8)) + (args013 * 64)) + (x13 * 4096))] = ((float)(((((float)(((float)layer3_0_conv1[(((args213 + (args113 * 8)) + (args013 * 64)) + (x13 * 4096))]) - ((float)layer3_0_bn1_running_mean[args013]))) / sqrtf((((float)layer3_0_bn1_running_var[args013]) + 1.000000e-07f))) * ((float)layer3_0_bn1_weight[args013])) + ((float)layer3_0_bn1_bias[args013])));
+            
+            layer3_0_bn1[(((args213 + (args113 * 8)) + (args013 * 64)) + (x13 * 4096))] = ((float)((((float)(((float)layer3_0_conv1[(((args213 + (args113 * 8)) + (args013 * 64)) + (x13 * 4096))]))) * ((float)layer3_0_bn1_weight[args013])) + ((float)layer3_0_bn1_bias[args013])));
           }
         }
       }
@@ -1031,7 +1059,9 @@ __kernel void test(__global float* restrict input_image, __global float* restric
       for (int32_t args014 = 0; args014 < 64; ++args014) {
         for (int32_t args114 = 0; args114 < 8; ++args114) {
           for (int32_t args214 = 0; args214 < 8; ++args214) {
-            layer3_0_bn2[(((args214 + (args114 * 8)) + (args014 * 64)) + (x14 * 4096))] = ((float)(((((float)(((float)layer3_0_conv2[(((args214 + (args114 * 8)) + (args014 * 64)) + (x14 * 4096))]) - ((float)layer3_0_bn2_running_mean[args014]))) / sqrtf((((float)layer3_0_bn2_running_var[args014]) + 1.000000e-07f))) * ((float)layer3_0_bn2_weight[args014])) + ((float)layer3_0_bn2_bias[args014])));
+            //layer3_0_bn2[(((args214 + (args114 * 8)) + (args014 * 64)) + (x14 * 4096))] = ((float)(((((float)(((float)layer3_0_conv2[(((args214 + (args114 * 8)) + (args014 * 64)) + (x14 * 4096))]) - ((float)layer3_0_bn2_running_mean[args014]))) / sqrtf((((float)layer3_0_bn2_running_var[args014]) + 1.000000e-07f))) * ((float)layer3_0_bn2_weight[args014])) + ((float)layer3_0_bn2_bias[args014])));
+            
+            layer3_0_bn2[(((args214 + (args114 * 8)) + (args014 * 64)) + (x14 * 4096))] = ((float)((((float)(((float)layer3_0_conv2[(((args214 + (args114 * 8)) + (args014 * 64)) + (x14 * 4096))]))) * ((float)layer3_0_bn2_weight[args014])) + ((float)layer3_0_bn2_bias[args014])));
           }
         }
       }
@@ -1099,7 +1129,9 @@ __kernel void test(__global float* restrict input_image, __global float* restric
       for (int32_t args015 = 0; args015 < 64; ++args015) {
         for (int32_t args115 = 0; args115 < 8; ++args115) {
           for (int32_t args215 = 0; args215 < 8; ++args215) {
-            layer3_1_bn1[(((args215 + (args115 * 8)) + (args015 * 64)) + (x15 * 4096))] = ((float)(((((float)(((float)layer3_1_conv1[(((args215 + (args115 * 8)) + (args015 * 64)) + (x15 * 4096))]) - ((float)layer3_1_bn1_running_mean[args015]))) / sqrtf((((float)layer3_1_bn1_running_var[args015]) + 1.000000e-07f))) * ((float)layer3_1_bn1_weight[args015])) + ((float)layer3_1_bn1_bias[args015])));
+            //layer3_1_bn1[(((args215 + (args115 * 8)) + (args015 * 64)) + (x15 * 4096))] = ((float)(((((float)(((float)layer3_1_conv1[(((args215 + (args115 * 8)) + (args015 * 64)) + (x15 * 4096))]) - ((float)layer3_1_bn1_running_mean[args015]))) / sqrtf((((float)layer3_1_bn1_running_var[args015]) + 1.000000e-07f))) * ((float)layer3_1_bn1_weight[args015])) + ((float)layer3_1_bn1_bias[args015])));
+            
+            layer3_1_bn1[(((args215 + (args115 * 8)) + (args015 * 64)) + (x15 * 4096))] = ((float)((((float)(((float)layer3_1_conv1[(((args215 + (args115 * 8)) + (args015 * 64)) + (x15 * 4096))]))) * ((float)layer3_1_bn1_weight[args015])) + ((float)layer3_1_bn1_bias[args015])));
           }
         }
       }
@@ -1167,7 +1199,9 @@ __kernel void test(__global float* restrict input_image, __global float* restric
       for (int32_t args016 = 0; args016 < 64; ++args016) {
         for (int32_t args116 = 0; args116 < 8; ++args116) {
           for (int32_t args216 = 0; args216 < 8; ++args216) {
-            layer3_1_bn2[(((args216 + (args116 * 8)) + (args016 * 64)) + (x16 * 4096))] = ((float)(((((float)(((float)layer3_1_conv2[(((args216 + (args116 * 8)) + (args016 * 64)) + (x16 * 4096))]) - ((float)layer3_1_bn2_running_mean[args016]))) / sqrtf((((float)layer3_1_bn2_running_var[args016]) + 1.000000e-07f))) * ((float)layer3_1_bn2_weight[args016])) + ((float)layer3_1_bn2_bias[args016])));
+            //layer3_1_bn2[(((args216 + (args116 * 8)) + (args016 * 64)) + (x16 * 4096))] = ((float)(((((float)(((float)layer3_1_conv2[(((args216 + (args116 * 8)) + (args016 * 64)) + (x16 * 4096))]) - ((float)layer3_1_bn2_running_mean[args016]))) / sqrtf((((float)layer3_1_bn2_running_var[args016]) + 1.000000e-07f))) * ((float)layer3_1_bn2_weight[args016])) + ((float)layer3_1_bn2_bias[args016])));
+
+            layer3_1_bn2[(((args216 + (args116 * 8)) + (args016 * 64)) + (x16 * 4096))] = ((float)((((float)(((float)layer3_1_conv2[(((args216 + (args116 * 8)) + (args016 * 64)) + (x16 * 4096))]))) * ((float)layer3_1_bn2_weight[args016])) + ((float)layer3_1_bn2_bias[args016])));
           }
         }
       }
@@ -1235,7 +1269,9 @@ __kernel void test(__global float* restrict input_image, __global float* restric
       for (int32_t args017 = 0; args017 < 64; ++args017) {
         for (int32_t args117 = 0; args117 < 8; ++args117) {
           for (int32_t args217 = 0; args217 < 8; ++args217) {
-            layer3_2_bn1[(((args217 + (args117 * 8)) + (args017 * 64)) + (x17 * 4096))] = ((float)(((((float)(((float)layer3_2_conv1[(((args217 + (args117 * 8)) + (args017 * 64)) + (x17 * 4096))]) - ((float)layer3_2_bn1_running_mean[args017]))) / sqrtf((((float)layer3_2_bn1_running_var[args017]) + 1.000000e-07f))) * ((float)layer3_2_bn1_weight[args017])) + ((float)layer3_2_bn1_bias[args017])));
+            //layer3_2_bn1[(((args217 + (args117 * 8)) + (args017 * 64)) + (x17 * 4096))] = ((float)(((((float)(((float)layer3_2_conv1[(((args217 + (args117 * 8)) + (args017 * 64)) + (x17 * 4096))]) - ((float)layer3_2_bn1_running_mean[args017]))) / sqrtf((((float)layer3_2_bn1_running_var[args017]) + 1.000000e-07f))) * ((float)layer3_2_bn1_weight[args017])) + ((float)layer3_2_bn1_bias[args017])));
+            
+            layer3_2_bn1[(((args217 + (args117 * 8)) + (args017 * 64)) + (x17 * 4096))] = ((float)((((float)(((float)layer3_2_conv1[(((args217 + (args117 * 8)) + (args017 * 64)) + (x17 * 4096))]))) * ((float)layer3_2_bn1_weight[args017])) + ((float)layer3_2_bn1_bias[args017])));
           }
         }
       }
@@ -1303,7 +1339,9 @@ __kernel void test(__global float* restrict input_image, __global float* restric
       for (int32_t args018 = 0; args018 < 64; ++args018) {
         for (int32_t args118 = 0; args118 < 8; ++args118) {
           for (int32_t args218 = 0; args218 < 8; ++args218) {
-            layer3_2_bn2[(((args218 + (args118 * 8)) + (args018 * 64)) + (x18 * 4096))] = ((float)(((((float)(((float)layer3_2_conv2[(((args218 + (args118 * 8)) + (args018 * 64)) + (x18 * 4096))]) - ((float)layer3_2_bn2_running_mean[args018]))) / sqrtf((((float)layer3_2_bn2_running_var[args018]) + 1.000000e-07f))) * ((float)layer3_2_bn2_weight[args018])) + ((float)layer3_2_bn2_bias[args018])));
+            //layer3_2_bn2[(((args218 + (args118 * 8)) + (args018 * 64)) + (x18 * 4096))] = ((float)(((((float)(((float)layer3_2_conv2[(((args218 + (args118 * 8)) + (args018 * 64)) + (x18 * 4096))]) - ((float)layer3_2_bn2_running_mean[args018]))) / sqrtf((((float)layer3_2_bn2_running_var[args018]) + 1.000000e-07f))) * ((float)layer3_2_bn2_weight[args018])) + ((float)layer3_2_bn2_bias[args018])));
+            
+            layer3_2_bn2[(((args218 + (args118 * 8)) + (args018 * 64)) + (x18 * 4096))] = ((float)((((float)(((float)layer3_2_conv2[(((args218 + (args118 * 8)) + (args018 * 64)) + (x18 * 4096))]))) * ((float)layer3_2_bn2_weight[args018])) + ((float)layer3_2_bn2_bias[args018])));
           }
         }
       }
