@@ -35,7 +35,7 @@ __kernel void test(__global float* restrict input_image, __global float* restric
         for (int32_t args1 = 0; args1 < 32; ++args1) {
           #pragma unroll 1
           for (int32_t args2 = 0; args2 < 32; ++args2) {
-            bn1[(((args2 + (args1 * 32)) + (args0 * 1024)) + (x * 16384))] = ((float)((((float)(((float)conv1[(((args2 + (args1 * 32)) + (args0 * 1024)) + (x * 16384))]))) * ((float)bn1_weight[args0])) + ((float)bn1_bias[args0])));
+            bn1[(((args2 + (args1 * 32)) + (args0 * 1024)) + (x * 16384))] = ((float)(((((float)(((float)conv1[(((args2 + (args1 * 32)) + (args0 * 1024)) + (x * 16384))]) - ((float)bn1_running_mean[args0]))) / sqrtf((((float)bn1_running_var[args0]) + 1.000000e-07f))) * ((float)bn1_weight[args0])) + ((float)bn1_bias[args0])));
           }
         }
       }

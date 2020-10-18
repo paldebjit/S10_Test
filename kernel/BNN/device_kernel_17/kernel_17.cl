@@ -5,6 +5,7 @@ __kernel void test(__global float* restrict input_image, __global float* restric
     for (int32_t indices = 0; indices < 1; ++indices) {
       for (int32_t not_zero = 0; not_zero < 3; ++not_zero) {
         for (int32_t index_tuple = 0; index_tuple < 34; ++index_tuple) {
+          #pragma unroll 1
           for (int32_t i = 0; i < 34; ++i) {
             conv1_pad[(((i + (index_tuple * 34)) + (not_zero * 1156)) + (indices * 3468))] = (float)(((((1 <= index_tuple) && (index_tuple < 33)) && (1 <= i)) && (i < 33)) ? ((float)input_image[((((i + (index_tuple * 32)) + (not_zero * 1024)) + (indices * 3072)) + -33)]) : ((float)0));
           }
@@ -19,6 +20,7 @@ __kernel void test(__global float* restrict input_image, __global float* restric
             float sum;
             for (int32_t rc = 0; rc < 3; ++rc) {
               for (int32_t ry = 0; ry < 3; ++ry) {
+                #pragma unroll 1
                 for (int32_t rx = 0; rx < 3; ++rx) {
                   sum = ((float)(((float)(((float)conv1_pad[((((xx + rx) + ((yy + ry) * 34)) + (rc * 1156)) + (nn * 3468))]) * ((float)conv1_weight[(((rx + (ry * 3)) + (rc * 9)) + (ff * 27))]))) + ((float)sum)));
                 }
@@ -44,6 +46,7 @@ __kernel void test(__global float* restrict input_image, __global float* restric
     for (int32_t nn1 = 0; nn1 < 1; ++nn1) {
       for (int32_t cc = 0; cc < 16; ++cc) {
         for (int32_t ww = 0; ww < 32; ++ww) {
+          #pragma unroll 1
           for (int32_t hh = 0; hh < 32; ++hh) {
             rsign1[(((hh + (ww * 32)) + (cc * 1024)) + (nn1 * 16384))] = ((bool)(int32_t)(((float)0 < ((float)(((float)bn1[(((hh + (ww * 32)) + (cc * 1024)) + (nn1 * 16384))]) + ((float)layer1_0_binarize1_shift_x_bias[cc])))) ? ((int32_t)1) : ((int32_t)0)));
           }
@@ -54,6 +57,7 @@ __kernel void test(__global float* restrict input_image, __global float* restric
     for (int32_t indices1 = 0; indices1 < 1; ++indices1) {
       for (int32_t not_zero1 = 0; not_zero1 < 16; ++not_zero1) {
         for (int32_t index_tuple1 = 0; index_tuple1 < 34; ++index_tuple1) {
+          #pragma unroll 1
           for (int32_t i1 = 0; i1 < 34; ++i1) {
             conv2_pad[(((i1 + (index_tuple1 * 34)) + (not_zero1 * 1156)) + (indices1 * 18496))] = (bool)(((((1 <= index_tuple1) && (index_tuple1 < 33)) && (1 <= i1)) && (i1 < 33)) ? ((bool)rsign1[((((i1 + (index_tuple1 * 32)) + (not_zero1 * 1024)) + (indices1 * 16384)) + -33)]) : ((bool)0));
           }
@@ -67,6 +71,7 @@ __kernel void test(__global float* restrict input_image, __global float* restric
             int8_t conv2_sum;
             for (int32_t rc1 = 0; rc1 < 16; ++rc1) {
               for (int32_t ry1 = 0; ry1 < 3; ++ry1) {
+                #pragma unroll 1
                 for (int32_t rx1 = 0; rx1 < 3; ++rx1) {
                   conv2_sum = ((int8_t)(((int64_t)(uint32_t)(((((((int64_t)1 - ((int64_t)rx1)) <= ((int64_t)xx1)) && (((int64_t)xx1) < ((int64_t)33 - ((int64_t)rx1)))) && (((int64_t)1 - ((int64_t)ry1)) <= ((int64_t)yy1))) && (((int64_t)yy1) < ((int64_t)33 - ((int64_t)ry1)))) ? ((uint32_t)((((1U - ((uint32_t)conv2_pad[((((xx1 + rx1) + ((yy1 + ry1) * 34)) + (rc1 * 1156)) + (nn2 * 18496))])) ^ layer1_0_conv1_weight[(((rx1 + (ry1 * 3)) + (rc1 * 9)) + (ff1 * 144))]) << 1) - 1U)) : ((uint32_t)0U))) + ((int64_t)conv2_sum)));
                 }
