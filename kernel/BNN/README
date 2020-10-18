@@ -1,2 +1,11 @@
 kernel_1:   Off-chip weight
 kernel_2:   On-chip weight
+kernel_3:   Toy kernel replicating exact function from kernel_2
+kernel_4:   Toy kernel with RHS multi-dimensional array
+kernel_5:   Toy kernel with LHS + RHS multi-dimensional array
+kernel_6:   Toy kernel with LHS + RHS multi-dimensional array + Index calculation using shift operations
+kernel_7:   Toy kernel with LHS + RHS multi-dimensional array + Index calculation using shift operations. Revealing Intel AOC reporting anomaly
+kernel_8:   Input CONV layer (Float data) + FULL UNROLL + SQRTF
+kernel_9:   Input CONV layer (Float data) + UNROLL 1 + SQRTF
+kernel_10:   Input CONV layer (Float data) + FULL UNROLL
+kernel_11:   Input CONV layer (Float data) + UNROLL 1
