@@ -9,3 +9,5 @@ kernel_8:   Input CONV layer (Float data) + FULL UNROLL + SQRTF
 kernel_9:   Input CONV layer (Float data) + UNROLL 1 + SQRTF
 kernel_10:   Input CONV layer (Float data) + FULL UNROLL
 kernel_11:   Input CONV layer (Float data) + UNROLL 1
+kernel_12:   Input CONV layer (Float data) + FULL UNROLL conv and UNROLL 1 for BN + SQRTF
+kernel_13:   Input CONV layer (Float data) + FULL UNROLL conv and UNROLL 1 for BN
