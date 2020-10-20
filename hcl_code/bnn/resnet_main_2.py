@@ -127,9 +127,12 @@ class ResNet():
     def __init__(self, block, num_blocks, params):
         self.in_planes = 16
         self.params = dict()
+        print(params[0].shape)
         self.params["conv1"] = params[0]
         self.params["bn1"] = params[1:5]
-        self.params["rsign1"] = params[5]
+        #self.params["rsign1"] = params[5]
+        #self.params["conv2"] = params[6]
+        #exit(0)
         #self.params["layer1"] = params[5:59]
         #self.params["layer2"] = params[59:113]
         #self.params["layer3"] = params[113:167]
@@ -151,9 +154,10 @@ class ResNet():
         return self.forward(x)
 
     def forward(self, x):
-        rsign1 = RSign(x, self.params["rsign1"], name="rsign1")
-        conv1 = bnn.conv2d_nchw(rsign1, self.params["conv1"], strides=[1, 1], padding=[1, 1], name="conv1", out_dtype=qtype_int)
+        conv1 = nn.conv2d_nchw(x, self.params["conv1"], strides=[1, 1], padding=[1, 1], name="conv1", out_dtype=qtype_float)
         bn, _, _ = nn.batch_norm(conv1, *self.params["bn1"], name="bn1",dtype=qtype_float)
+        #rsign1 = RSign(bn, self.params["rsign1"], name="rsign1")
+        #conv2 = bnn.conv2d_nchw(rsign1, self.params["conv2"], strides=[1, 1], padding=[1, 1], name="conv2", out_dtype=qtype_int)
         #layer1 = self.layer1(bn)
         #layer2 = self.layer2(layer1)
         #layer3 = self.layer3(layer2)
@@ -284,8 +288,9 @@ mylist = ['conv1_weight', \
           'bn1_weight', \
           'bn1_bias', \
           'bn1_running_mean', \
-          'bn1_running_var', \
-          'layer1_0_binarize1_shift_x_bias']
+          'bn1_running_var']#, \
+          #'layer1_0_binarize1_shift_x_bias', \
+          #'layer1_0_conv1_weight']
 new_params = dict()
 #for key in params:
 #    params[key] = params[key].numpy()
@@ -303,12 +308,14 @@ new_params = dict()
 #    else:
 #        new_params[new_key] = np.array(params[key])
 
+pp.pprint(params.keys())
 for key in params:
     params[key] = params[key].numpy()
     new_key = key.replace(".","_")
     if new_key in mylist: 
         if "layer1_0_binarize1_shift_x_bias" in new_key:
-            new_params[new_key] = np.array(params[key]).reshape(-1)[0:3]
+            #new_params[new_key] = np.array(params[key]).reshape(-1)[0:3]
+            new_params[new_key] = np.array(params[key]).reshape(-1)
         elif "conv" in new_key:
             temp = np.sign(params[key])
             temp[temp < 0] = 0 # change from {-1,1} to {0,1}
@@ -345,10 +352,11 @@ if __name__ == "__main__":
         labels = np.array(labels)
         hcl_image = hcl.asarray(images, dtype=qtype_float)
         resnet20(hcl_image, *hcl_array, hcl_out)
-        prediction = np.argmax(hcl_out.asnumpy(), axis=1)
-        correct_sum += np.sum(np.equal(prediction, labels))
-        if (i+1) % 10 == 0:
-            print("Done {} batches.".format(i+1))
-        if (i+1) * batch_size == test_size:
-            break
-    print("Testing accuracy: {}".format(correct_sum / float(test_size)))
+        print(hcl_out)
+        #prediction = np.argmax(hcl_out.asnumpy(), axis=1)
+        #correct_sum += np.sum(np.equal(prediction, labels))
+        #if (i+1) % 10 == 0:
+        #    print("Done {} batches.".format(i+1))
+        #if (i+1) * batch_size == test_size:
+        #    break
+    #print("Testing accuracy: {}".format(correct_sum / float(test_size)))
