@@ -19,3 +19,5 @@ kernel_16:   Binarized Input CONV layer (Int data) + BN (Float data) + FULL UNRO
 kernel_17:   Binarized Input CONV layer (Int data) + BN (Float data) + UNROLL 1
 kernel_18:   Binarized Input CONV layer (Int data) + BN (Float data) + FULL UNROLL conv and UNROLL 1 for BN + SQRTF
 kernel_19:   Binarized Input CONV layer (Int data) + BN (Float data) + FULL UNROLL conv and UNROLL 1 for BN
+
+kernel_20:  kernel_1 + unroll 1 for PReLU, RSign, and BN
