@@ -49,7 +49,7 @@ __kernel void test(
     bool layer2_2_conv1_weight[9216];
     bool layer2_2_conv2_weight[9216];
 
-    bool layer3_2_bn2_running_var[3072];
+    int32_t layer3_2_bn2_running_var[3072];
     bool layer3_0_conv1_weight[18432];
     bool layer3_0_conv2_weight[36864];
     bool layer3_1_conv1_weight[36864];
