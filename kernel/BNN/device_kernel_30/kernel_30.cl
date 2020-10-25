@@ -165,8 +165,7 @@ if (mode == 1) {
         linear_weight[idx241] = linear_weight_[idx241];
     }
     
-
-    for(int32_t idx251 = 0; idx251 < 48; ++idx251) {
+    for(int32_t idx251 = 0; idx251 < 10; ++idx251) {
       linear_bias[idx251] = linear_bias_[idx251];
     }
 
