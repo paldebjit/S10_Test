@@ -41,13 +41,11 @@ if (mode == 1) {
     int32_t bn1_running_var[64];
     for(int32_t idx21 = 0; idx21 < 64; ++idx21) {
         bn1_running_var[idx21] = bn1_running_var_[idx21];
-      }
     }
 
     int32_t layer1_2_bn2_running_var[768];
     for(int32_t idx31 = 0; idx31 < 768; ++idx31) {
         layer1_2_bn2_running_var[idx31] = layer1_2_bn2_running_var_[idx31];
-      }
     }
 
     bool layer1_0_conv1_weight[2304];
@@ -118,7 +116,6 @@ if (mode == 1) {
     bool layer3_2_bn2_running_var[3072];
     for(int32_t idx171 = 0; idx171 < 3072; ++idx171) {
         layer3_2_bn2_running_var[idx171] = layer3_2_bn2_running_var_[idx171];
-      }
     }
        
     bool layer3_0_conv1_weight[18432];
@@ -154,13 +151,11 @@ if (mode == 1) {
     int32_t linear_weight[640]
     for(int32_t idx241 = 0; idx241 < 640; ++idx241) {
         linear_weight[idx241] = linear_weight_[idx241];
-      }
     }
     
     int32_t linear_bias[10];
     for(int32_t idx251 = 0; idx251 < 48; ++idx251) {
       linear_bias[idx251] = linear_bias_[idx251];
-      }
     }
 
         
