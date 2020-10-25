@@ -259,25 +259,27 @@ if (mode == 1) {
       }
     }
 
-    for(int32_t idx11 = 0; idx11 < 16; ++idx11) {
-      for (int32_t idx12 = 0; idx12 < 16; ++idx12) {
-        for (int32_t idx13 = 0; idx13 < 3; ++idx13) {
-          for (int32_t idx14 = 0; idx14 < 3; ++idx14) {
-            layer3_2_conv2_weight[idx14][idx13][idx12][idx11] = layer3_2_conv2_weight_[idx14][][idx13][idx12][idx11];
+    bool layer3_2_conv2_weight[64][64][3][3];
+    for(int32_t idx231 = 0; idx231 < 64; ++idx231) {
+      for (int32_t idx232 = 0; idx232 < 64; ++idx232) {
+        for (int32_t idx233 = 0; idx233 < 3; ++idx233) {
+          for (int32_t idx234 = 0; idx234 < 3; ++idx234) {
+            layer3_2_conv2_weight[idx234][idx233][idx232][idx231] = layer3_2_conv2_weight_[idx234][idx233][idx232][idx231];
           }
         }
       }
     }
 
-    for(int32_t idx11 = 0; idx11 < 48; ++idx11) {
-      for (int32_t idx12 = 0; idx12 < 32; ++idx12) {
-        linear_weight[idx12][idx11] = linear_weight_[idx12][idx11];
+    int32_t linear_weight[10][64]
+    for(int32_t idx241 = 0; idx241 < 10; ++idx241) {
+      for (int32_t idx242 = 0; idx242 < 64; ++idx242) {
+        linear_weight[idx242][idx241] = linear_weight_[idx242][idx241];
       }
     }
-
-    for(int32_t idx11 = 0; idx11 < 48; ++idx11) {
-      for (int32_t idx12 = 0; idx12 < 32; ++idx12) {
-        linear_bias[idx12][idx11] = linear_bias_[idx12][idx11];
+    
+    int32_t linear_bias[10];
+    for(int32_t idx251 = 0; idx251 < 48; ++idx251) {
+      linear_bias[idx251] = linear_bias_[idx251];
       }
     }
 
