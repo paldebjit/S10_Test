@@ -38,27 +38,27 @@ __kernel void test(
     bool layer1_0_conv2_weight[2304];
     bool layer1_1_conv1_weight[2304];
     bool layer1_1_conv2_weight[2304];
-    bool layer1_2_conv2_weight[2304];
     bool layer1_2_conv1_weight[2304];
+    bool layer1_2_conv2_weight[2304];
 
     int32_t layer2_2_bn2_running_var[1536];
     bool layer2_0_conv1_weight[4608];
-    bool layer2_1_conv1_weight[9216];
     bool layer2_0_conv2_weight[9216];
-    int32_t linear_bias[10];
-    int32_t linear_weight[640];
-    bool layer3_2_conv2_weight[36864];
-    bool layer3_2_conv1_weight[36864];
-    bool layer3_1_conv2_weight[36864];
-    bool layer3_1_conv1_weight[36864];
-    bool layer3_0_conv2_weight[36864];
-    bool layer3_0_conv1_weight[18432];
-    bool layer3_2_bn2_running_var[3072];
-    bool layer2_2_conv1_weight[9216];
+    bool layer2_1_conv1_weight[9216];
     bool layer2_1_conv2_weight[9216];
+    bool layer2_2_conv1_weight[9216];
     bool layer2_2_conv2_weight[9216];
 
-
+    bool layer3_2_bn2_running_var[3072];
+    bool layer3_0_conv1_weight[18432];
+    bool layer3_0_conv2_weight[36864];
+    bool layer3_1_conv1_weight[36864];
+    bool layer3_1_conv2_weight[36864];
+    bool layer3_2_conv1_weight[36864];
+    bool layer3_2_conv2_weight[36864];
+    
+    int32_t linear_weight[640];
+    int32_t linear_bias[10];
 
 if (mode == 1) {
 
