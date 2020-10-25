@@ -141,108 +141,119 @@ if (mode == 1) {
         }
       }
     }
-
-    for(int32_t idx11 = 0; idx11 < 16; ++idx11) {
-      for (int32_t idx12 = 0; idx12 < 16; ++idx12) {
-        for (int32_t idx13 = 0; idx13 < 3; ++idx13) {
-          for (int32_t idx14 = 0; idx14 < 3; ++idx14) {
-            layer2_0_conv2_weight[idx14][idx13][idx12][idx11] = layer2_0_conv2_weight_[idx14][][idx13][idx12][idx11];
+    
+    bool layer2_0_conv2_weight[32][32][3][3];
+    for(int32_t idx121 = 0; idx121 < 32; ++idx121) {
+      for (int32_t idx122 = 0; idx122 < 32; ++idx122) {
+        for (int32_t idx123 = 0; idx123 < 3; ++idx123) {
+          for (int32_t idx124 = 0; idx124 < 3; ++idx124) {
+            layer2_0_conv2_weight[idx124][idx123][idx122][idx121] = layer2_0_conv2_weight_[idx124][idx123][idx122][idx121];
+          }
+        }
+      }
+    }
+    
+    bool layer2_1_conv1_weight[32][32][3][3];
+    for(int32_t idx131 = 0; idx131 < 32; ++idx131) {
+      for (int32_t idx132 = 0; idx132 < 32; ++idx132) {
+        for (int32_t idx133 = 0; idx133 < 3; ++idx133) {
+          for (int32_t idx134 = 0; idx134 < 3; ++idx134) {
+            layer2_1_conv1_weight[idx134][idx133][idx132][idx131] = layer2_1_conv1_weight_[idx134][idx133][idx132][idx131];
+          }
+        }
+      }
+    }
+    
+    bool layer2_1_conv2_weight[32][32][3][3];
+    for(int32_t idx141 = 0; idx141 < 32; ++idx141) {
+      for (int32_t idx142 = 0; idx142 < 32; ++idx142) {
+        for (int32_t idx143 = 0; idx143 < 3; ++idx143) {
+          for (int32_t idx144 = 0; idx144 < 3; ++idx144) {
+            layer2_1_conv2_weight[idx144][idx143][idx142][idx141] = layer2_1_conv2_weight_[idx144][idx143][idx142][idx141];
           }
         }
       }
     }
 
-    for(int32_t idx11 = 0; idx11 < 16; ++idx11) {
-      for (int32_t idx12 = 0; idx12 < 16; ++idx12) {
-        for (int32_t idx13 = 0; idx13 < 3; ++idx13) {
+    bool layer2_2_conv1_weight[32][32][3][3];
+    for(int32_t idx151 = 0; idx151 < 32; ++idx151) {
+      for (int32_t idx152 = 0; idx152 < 32; ++idx152) {
+        for (int32_t idx153 = 0; idx153 < 3; ++idx153) {
           for (int32_t idx14 = 0; idx14 < 3; ++idx14) {
-            layer2_1_conv1_weight[idx14][idx13][idx12][idx11] = layer2_1_conv1_weight_[idx14][][idx13][idx12][idx11];
+            layer2_2_conv1_weight[idx154][idx153][idx152][idx151] = layer2_2_conv1_weight_[idx154][idx153][idx152][idx151];
           }
         }
       }
     }
 
-    for(int32_t idx11 = 0; idx11 < 16; ++idx11) {
-      for (int32_t idx12 = 0; idx12 < 16; ++idx12) {
-        for (int32_t idx13 = 0; idx13 < 3; ++idx13) {
-          for (int32_t idx14 = 0; idx14 < 3; ++idx14) {
-            layer2_1_conv2_weight[idx14][idx13][idx12][idx11] = layer2_1_conv2_weight_[idx14][][idx13][idx12][idx11];
+    bool layer2_2_conv2_weight[32][32][3][3];
+    for(int32_t idx161 = 0; idx161 < 16; ++idx161) {
+      for (int32_t idx162 = 0; idx162 < 16; ++idx162) {
+        for (int32_t idx163 = 0; idx163 < 3; ++idx163) {
+          for (int32_t idx164 = 0; idx164 < 3; ++idx164) {
+            layer2_2_conv2_weight[idx164][idx163][idx162][idx161] = layer2_2_conv2_weight_[idx164][idx163][idx162][idx161];
           }
         }
       }
     }
 
-    for(int32_t idx11 = 0; idx11 < 16; ++idx11) {
-      for (int32_t idx12 = 0; idx12 < 16; ++idx12) {
-        for (int32_t idx13 = 0; idx13 < 3; ++idx13) {
-          for (int32_t idx14 = 0; idx14 < 3; ++idx14) {
-            layer2_2_conv1_weight[idx14][idx13][idx12][idx11] = layer2_2_conv1_weight_[idx14][][idx13][idx12][idx11];
-          }
-        }
-      }
-    }
-
-    for(int32_t idx11 = 0; idx11 < 16; ++idx11) {
-      for (int32_t idx12 = 0; idx12 < 16; ++idx12) {
-        for (int32_t idx13 = 0; idx13 < 3; ++idx13) {
-          for (int32_t idx14 = 0; idx14 < 3; ++idx14) {
-            layer2_2_conv2_weight[idx14][idx13][idx12][idx11] = layer2_2_conv2_weight_[idx14][][idx13][idx12][idx11];
-          }
-        }
-      }
-    }
-
-    for(int32_t idx11 = 0; idx11 < 48; ++idx11) {
-      for (int32_t idx12 = 0; idx12 < 32; ++idx12) {
-        layer3_2_bn2_running_var[idx12][idx11] = layer3_2_bn2_running_var_[idx12][idx11];
+    bool layer3_2_bn2_running_var[48][64];
+    for(int32_t idx171 = 0; idx171 < 48; ++idx171) {
+      for (int32_t idx172 = 0; idx172 < 64; ++idx172) {
+        layer3_2_bn2_running_var[idx172][idx171] = layer3_2_bn2_running_var_[idx172][idx171];
       }
     }
        
-    for(int32_t idx11 = 0; idx11 < 16; ++idx11) {
-      for (int32_t idx12 = 0; idx12 < 16; ++idx12) {
-        for (int32_t idx13 = 0; idx13 < 3; ++idx13) {
-          for (int32_t idx14 = 0; idx14 < 3; ++idx14) {
-            layer3_0_conv1_weight[idx14][idx13][idx12][idx11] = layer3_0_conv1_weight_[idx14][][idx13][idx12][idx11];
+    bool layer3_0_conv1_weight[64][32][3][3];
+    for(int32_t idx181 = 0; idx181 < 64; ++idx181) {
+      for (int32_t idx182 = 0; idx182 < 32; ++idx182) {
+        for (int32_t idx183 = 0; idx183 < 3; ++idx183) {
+          for (int32_t idx184 = 0; idx184 < 3; ++idx184) {
+            layer3_0_conv1_weight[idx184][idx183][idx182][idx181] = layer3_0_conv1_weight_[idx184][idx183][idx182][idx181];
           }
         }
       }
     }
 
-    for(int32_t idx11 = 0; idx11 < 16; ++idx11) {
-      for (int32_t idx12 = 0; idx12 < 16; ++idx12) {
-        for (int32_t idx13 = 0; idx13 < 3; ++idx13) {
-          for (int32_t idx14 = 0; idx14 < 3; ++idx14) {
-            layer3_0_conv2_weight[idx14][idx13][idx12][idx11] = layer3_0_conv2_weight_[idx14][][idx13][idx12][idx11];
+    bool layer3_0_conv2_weight[64][64][3][3];
+    for(int32_t idx191 = 0; idx191 < 64; ++idx191) {
+      for (int32_t idx192 = 0; idx192 < 64; ++idx192) {
+        for (int32_t idx193 = 0; idx193 < 3; ++idx193) {
+          for (int32_t idx194 = 0; idx194 < 3; ++idx194) {
+            layer3_0_conv2_weight[idx194][idx193][idx192][idx191] = layer3_0_conv2_weight_[idx194][idx193][idx192][idx191];
           }
         }
       }
     }
 
-    for(int32_t idx11 = 0; idx11 < 16; ++idx11) {
-      for (int32_t idx12 = 0; idx12 < 16; ++idx12) {
-        for (int32_t idx13 = 0; idx13 < 3; ++idx13) {
-          for (int32_t idx14 = 0; idx14 < 3; ++idx14) {
-            layer3_1_conv1_weight[idx14][idx13][idx12][idx11] = layer3_1_conv1_weight_[idx14][][idx13][idx12][idx11];
+    bool layer3_1_conv1_weight[64][64][3][3];
+    for(int32_t idx201 = 0; idx201 < 64; ++idx201) {
+      for (int32_t idx202 = 0; idx202 < 64; ++idx202) {
+        for (int32_t idx203 = 0; idx203 < 3; ++idx203) {
+          for (int32_t idx204 = 0; idx204 < 3; ++idx204) {
+            layer3_1_conv1_weight[idx204][idx203][idx202][idx201] = layer3_1_conv1_weight_[idx204][idx203][idx202][idx201];
           }
         }
       }
     }
 
-    for(int32_t idx11 = 0; idx11 < 16; ++idx11) {
-      for (int32_t idx12 = 0; idx12 < 16; ++idx12) {
-        for (int32_t idx13 = 0; idx13 < 3; ++idx13) {
-          for (int32_t idx14 = 0; idx14 < 3; ++idx14) {
-            layer3_1_conv2_weight[idx14][idx13][idx12][idx11] = layer3_1_conv2_weight_[idx14][][idx13][idx12][idx11];
+    bool layer3_1_conv2_weight[64][64][3][3];
+    for(int32_t idx211 = 0; idx211 < 64; ++idx211) {
+      for (int32_t idx212 = 0; idx212 < 64; ++idx212) {
+        for (int32_t idx213 = 0; idx213 < 3; ++idx213) {
+          for (int32_t idx214 = 0; idx214 < 3; ++idx214) {
+            layer3_1_conv2_weight[idx214][idx213][idx212][idx211] = layer3_1_conv2_weight_[idx214][idx213][idx212][idx211];
           }
         }
       }
     }
 
-    for(int32_t idx11 = 0; idx11 < 16; ++idx11) {
-      for (int32_t idx12 = 0; idx12 < 16; ++idx12) {
-        for (int32_t idx13 = 0; idx13 < 3; ++idx13) {
-          for (int32_t idx14 = 0; idx14 < 3; ++idx14) {
-            layer3_2_conv1_weight[idx14][idx13][idx12][idx11] = layer3_2_conv1_weight_[idx14][][idx13][idx12][idx11];
+    bool layer3_2_conv1_weight[64][64][3][3];
+    for(int32_t idx221 = 0; idx221 < 64; ++idx221) {
+      for (int32_t idx222 = 0; idx222 < 64; ++idx222) {
+        for (int32_t idx223 = 0; idx223 < 3; ++idx223) {
+          for (int32_t idx224 = 0; idx224 < 3; ++idx224) {
+            layer3_2_conv1_weight[idx224][idx223][idx222][idx221] = layer3_2_conv1_weight_[idx224][idx223][idx222][idx221];
           }
         }
       }
