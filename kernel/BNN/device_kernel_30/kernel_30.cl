@@ -1,7 +1,6 @@
 // HASH:2610458785
 #include "ihc_apint.h"
 __kernel void test(
-                   const int mode, 
                    __global int32_t* restrict input_image, 
                    __global int32_t* restrict conv1_weight_, 
                    __global int32_t* restrict bn1_running_var_, 
@@ -28,7 +27,8 @@ __kernel void test(
                    __global bool* restrict layer3_2_conv2_weight_, 
                    __global int32_t* restrict linear_weight_, 
                    __global int32_t* restrict fc, 
-                   __global int32_t* restrict linear_bias_
+                   __global int32_t* restrict linear_bias_,
+                   const int mode 
                    ) {
 // Load param values to on-chip storage
     int32_t conv1_weight[432];
