@@ -31,129 +31,141 @@ __kernel void test(
                    __global int32_t* restrict linear_bias_
                    ) {
 // Load param values to on-chip storage
+    int32_t conv1_weight[432];
+    int32_t bn1_running_var[64];
+    int32_t layer1_2_bn2_running_var[768];
+    bool layer1_0_conv1_weight[2304];
+    bool layer1_0_conv2_weight[2304];
+    bool layer1_1_conv1_weight[2304];
+    bool layer1_1_conv2_weight[2304];
+    bool layer1_2_conv2_weight[2304];
+    bool layer1_2_conv1_weight[2304];
+
+    int32_t layer2_2_bn2_running_var[1536];
+    bool layer2_0_conv1_weight[4608];
+    bool layer2_1_conv1_weight[9216];
+    bool layer2_0_conv2_weight[9216];
+    int32_t linear_bias[10];
+    int32_t linear_weight[640];
+    bool layer3_2_conv2_weight[36864];
+    bool layer3_2_conv1_weight[36864];
+    bool layer3_1_conv2_weight[36864];
+    bool layer3_1_conv1_weight[36864];
+    bool layer3_0_conv2_weight[36864];
+    bool layer3_0_conv1_weight[18432];
+    bool layer3_2_bn2_running_var[3072];
+    bool layer2_2_conv1_weight[9216];
+    bool layer2_1_conv2_weight[9216];
+    bool layer2_2_conv2_weight[9216];
+
+
+
 if (mode == 1) {
 
-    int32_t conv1_weight[432];
     for(int32_t idx11 = 0; idx11 < 432; ++idx11) {
             conv1_weight[idx11] = conv1_weight_[idx11];
     }
 
-    int32_t bn1_running_var[64];
     for(int32_t idx21 = 0; idx21 < 64; ++idx21) {
         bn1_running_var[idx21] = bn1_running_var_[idx21];
     }
 
-    int32_t layer1_2_bn2_running_var[768];
     for(int32_t idx31 = 0; idx31 < 768; ++idx31) {
         layer1_2_bn2_running_var[idx31] = layer1_2_bn2_running_var_[idx31];
     }
 
-    bool layer1_0_conv1_weight[2304];
     for(int32_t idx41 = 0; idx41 < 2304; ++idx41) {
             layer1_0_conv1_weight[idx41] = layer1_0_conv1_weight_[idx41];
     }
 
-    bool layer1_0_conv2_weight[2304];
     for(int32_t idx51 = 0; idx51 < 2304; ++idx51) {
             layer1_0_conv2_weight[idx51] = layer1_0_conv2_weight_[idx51];
     }
     
-    bool layer1_1_conv1_weight[2304];
     for(int32_t idx61 = 0; idx61 < 2304; ++idx61) {
             layer1_1_conv1_weight[idx61] = layer1_1_conv1_weight_[idx61];
     }
 
-    bool layer1_1_conv2_weight[2304];
     for(int32_t idx71 = 0; idx71 < 2304; ++idx71) {
             layer1_1_conv2_weight[idx71] = layer1_1_conv2_weight_[idx71];
     }
 
-    bool layer1_2_conv1_weight[2304];
     for(int32_t idx81 = 0; idx81 < 2304; ++idx81) {
             layer1_2_conv1_weight[idx81] = layer1_2_conv1_weight_[idx81];
     }
     
-    bool layer1_2_conv2_weight[2304];
     for(int32_t idx91 = 0; idx91 < 2304; ++idx91) {
             layer1_2_conv2_weight[idx91] = layer1_2_conv2_weight_[idx91];
     }
     
-    int32_t layer2_2_bn2_running_var[1536];
     for(int32_t idx101 = 0; idx101 < 1536; ++idx101) {
         layer2_2_bn2_running_var[idx101] = layer2_2_bn2_running_var_[idx101];
     }
     
-    bool layer2_0_conv1_weight[4608];
     for(int32_t idx111 = 0; idx111 < 4608; ++idx111) {
             layer2_0_conv1_weight[idx111] = layer2_0_conv1_weight_[idx111];
     }
     
-    bool layer2_0_conv2_weight[9216];
     for(int32_t idx121 = 0; idx121 < 9216; ++idx121) {
             layer2_0_conv2_weight[idx121] = layer2_0_conv2_weight_[idx121];
     }
     
-    bool layer2_1_conv1_weight[9216];
     for(int32_t idx131 = 0; idx131 < 9216; ++idx131) {
             layer2_1_conv1_weight[idx131] = layer2_1_conv1_weight_[idx131];
     }
     
-    bool layer2_1_conv2_weight[9216];
     for(int32_t idx141 = 0; idx141 < 9216; ++idx141) {
             layer2_1_conv2_weight[idx141] = layer2_1_conv2_weight_[idx141];
     }
 
-    bool layer2_2_conv1_weight[9216];
     for(int32_t idx151 = 0; idx151 < 9216; ++idx151) {
             layer2_2_conv1_weight[idx151] = layer2_2_conv1_weight_[idx151];
     }
-
-    bool layer2_2_conv2_weight[9216];
+    
     for(int32_t idx161 = 0; idx161 < 9216; ++idx161) {
             layer2_2_conv2_weight[idx161] = layer2_2_conv2_weight_[idx161];
     }
 
-    bool layer3_2_bn2_running_var[3072];
+
     for(int32_t idx171 = 0; idx171 < 3072; ++idx171) {
         layer3_2_bn2_running_var[idx171] = layer3_2_bn2_running_var_[idx171];
     }
        
-    bool layer3_0_conv1_weight[18432];
+
     for(int32_t idx181 = 0; idx181 < 18432; ++idx181) {
             layer3_0_conv1_weight[idx181] = layer3_0_conv1_weight_[idx181];
     }
 
-    bool layer3_0_conv2_weight[36864];
+
     for(int32_t idx191 = 0; idx191 < 36864; ++idx191) {
             layer3_0_conv2_weight[idx191] = layer3_0_conv2_weight_[idx191];
     }
 
-    bool layer3_1_conv1_weight[36864];
+
     for(int32_t idx201 = 0; idx201 < 36864; ++idx201) {
             layer3_1_conv1_weight[idx201] = layer3_1_conv1_weight_[idx201];
     }
 
-    bool layer3_1_conv2_weight[36864];
+
     for(int32_t idx211 = 0; idx211 < 36864; ++idx211) {
             layer3_1_conv2_weight[idx211] = layer3_1_conv2_weight_[idx211];
     }
 
-    bool layer3_2_conv1_weight[36864];
+
     for(int32_t idx221 = 0; idx221 < 36864; ++idx221) {
             layer3_2_conv1_weight[idx221] = layer3_2_conv1_weight_[idx221];
     }
 
-    bool layer3_2_conv2_weight[36864];
+
     for(int32_t idx231 = 0; idx231 < 36864; ++idx231) {
             layer3_2_conv2_weight[idx231] = layer3_2_conv2_weight_[idx231];
     }
 
-    int32_t linear_weight[640]
     for(int32_t idx241 = 0; idx241 < 640; ++idx241) {
         linear_weight[idx241] = linear_weight_[idx241];
     }
     
-    int32_t linear_bias[10];
+
     for(int32_t idx251 = 0; idx251 < 48; ++idx251) {
       linear_bias[idx251] = linear_bias_[idx251];
     }
