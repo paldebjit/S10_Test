@@ -21,3 +21,15 @@ kernel_18:   Binarized Input CONV layer (Int data) + BN (Float data) + FULL UNRO
 kernel_19:   Binarized Input CONV layer (Int data) + BN (Float data) + FULL UNROLL conv and UNROLL 1 for BN
 
 kernel_20:  kernel_1 + unroll 1 for PReLU, RSign, and BN
+kernel_21:  kernel_1 + unroll 1 for PReLU, RSign, and BN (Arria10)
+kernel_22:  Sean's packed params V1 + Fixed point data type fix by Shaojie
+kernel_23:  Sean's packed params V2 + (Fixed point data type + int64_t) fix by Shaojie
+kernel_24:  On-chip + (Fixed point data type + int64_t) fix by Shaojie
+kernel_25:  Sean's packed params V3 (Less than 32 kernel parameters) + (Fixed point data type + int64_t) fix by Shaojie
+kernel_26:  Sean's packed params V3 (Less than 32 kernel parameters) + (Fixed point data type + int64_t) fix by Shaojie + no sqrtf in BN
+kernel_27:  Kernel_26 + UNROLL 1 for PReLU, RSign, and BN
+Kernel_28:  Kernel_26 + Const values for params aka kernel arguments
+Kernel_29:  Kernel_28 + UNROLL 1 for PReLU, RSign, and BN
+
+Kernel_30:  Kernel 26 + mode variable
+Kernel_31:  Kernel_28 + Random number
