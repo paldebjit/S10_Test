@@ -8,6 +8,7 @@ __kernel void default_function(const uint64_t test_image, __global uint64_t* res
     }
   }
   uint64_t knn_update;
+  #pragma ivdep
   for (int32_t y1 = 0; y1 < 1800; ++y1) {
     //#pragma ii 1
     for (int32_t x1 = 0; x1 < 10; ++x1) {
@@ -20,7 +21,6 @@ __kernel void default_function(const uint64_t test_image, __global uint64_t* res
       }
       dist = out;
       uint64_t max_id;
-      #pragma ivdep
       for (int32_t i1 = 0; i1 < 3; ++i1) {
         if (knn_mat[(max_id + ((uint64_t)(x1 * 3)))] < knn_mat[(i1 + (x1 * 3))]) {
           max_id = ((uint64_t)i1);
