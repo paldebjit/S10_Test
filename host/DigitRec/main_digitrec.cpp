@@ -158,7 +158,9 @@ void populateData(int size, uint64_t* ptr) {
 int main(int argc, const char** argv) {
 
     printf("%s Starting...\n\n", argv[0]); 
-
+    int MAX_RUNS = 100;
+    double runtime = 0.0;
+    for (int run = 0; run < MAX_RUNS; ++run) {
     unsigned int elements;
     FILE * file;
     long int fstart, fend;
@@ -562,6 +564,7 @@ int main(int argc, const char** argv) {
     printf("  Loader kernels start time\t\t= %.5f s\n", k_earliest_start_time);     
     printf("  Drainer kernels end time\t\t= %.5f s\n", k_latest_end_time);     
     printf("  FPGA MatMult exec time\t\t= %.5f s\n", k_overall_exec_time);     
+    runtime = runtime + k_overall_exec_time;
 
     // multiplied by 1.0e-9 to get G-FLOPs
     //printf("\n");
@@ -590,6 +593,8 @@ int main(int argc, const char** argv) {
     acl_aligned_free(platforms);
     acl_aligned_free(devices);
     */
+    }
+    printf("Avg runtime for %d runs: %.5f s\n\n", MAX_RUNS, 1.0 * runtime / MAX_RUNS);
 }
 
 
