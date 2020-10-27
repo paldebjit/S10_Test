@@ -172,8 +172,10 @@ int main(int argc, const char** argv) {
 
     uint64_t* param1;            // train_images
     uint8_t*  param2;            // knn_mat
+    //uint32_t*  param2;            // knn_mat
     int size1 = 10 * 1800;       // 10 * 1800    --  train images ??
     int size2 = 10 * 3;          // 10 * 3       --  knn mat
+    //int size2 = 8;          // 10 * 3       --  knn mat
 
     uint64_t test_image;
     test_image = 0x3041060800;
@@ -187,6 +189,7 @@ int main(int argc, const char** argv) {
     populateData(size1, param1);
     
     if((param2 = (uint8_t*)acl_aligned_malloc(size2*sizeof(param2))) == NULL) {
+    //if((param2 = (uint32_t*)acl_aligned_malloc(size2*sizeof(param2))) == NULL) {
         perror("Failed malloc of param1 vector");
     }
 
